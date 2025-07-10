@@ -26,6 +26,9 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  
+  <!-- Modern Effects CSS -->
+  <link href="assets/css/modern-effects.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -126,17 +129,34 @@
 
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background" style="border: 1px solid white; border-radius: 5px;">
+    <section id="hero" class="hero section dark-background" style="border: 1px solid white; border-radius: 5px; position: relative; overflow: hidden;">
 
+      <!-- Background Image with Enhanced Effects -->
+      <img src="images-john/me.jpg" alt="" data-aos="fade-in" class="hero-bg" style="opacity: 0.9; filter: brightness(90%); position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
 
-      <img src="images-john/me.jpg" alt="" data-aos="fade-in" class="" style="opacity: 0.9; filter: brightness(90%);">
+      <!-- Floating Tech Icons -->
+      <div class="floating-icons" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
+        <i class="bi bi-code-slash" style="position: absolute; top: 15%; left: 10%; font-size: 2rem; color: rgba(255, 255, 255, 0.3); animation: float 6s ease-in-out infinite;"></i>
+        <i class="bi bi-palette" style="position: absolute; top: 25%; right: 15%; font-size: 2rem; color: rgba(255, 255, 255, 0.3); animation: float 8s ease-in-out infinite 1s;"></i>
+        <i class="bi bi-laptop" style="position: absolute; bottom: 30%; left: 20%; font-size: 2rem; color: rgba(255, 255, 255, 0.3); animation: float 7s ease-in-out infinite 2s;"></i>
+        <i class="bi bi-gear" style="position: absolute; bottom: 20%; right: 10%; font-size: 2rem; color: rgba(255, 255, 255, 0.3); animation: float 9s ease-in-out infinite 0.5s;"></i>
+        <i class="bi bi-lightning" style="position: absolute; top: 50%; left: 5%; font-size: 2rem; color: rgba(255, 255, 255, 0.3); animation: float 5s ease-in-out infinite 3s;"></i>
+        <i class="bi bi-graph-up" style="position: absolute; top: 60%; right: 5%; font-size: 2rem; color: rgba(255, 255, 255, 0.3); animation: float 6.5s ease-in-out infinite 1.5s;"></i>
+      </div>
 
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100vh;">
-        <h2 style="color: #fff; font-size: 3rem; text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5), 4px 4px 20px rgba(0, 255, 255, 0.7), 6px 6px 30px rgba(0, 255, 255, 0.9);">
+      <!-- Main Content -->
+      <div class="container" data-aos="fade-up" data-aos-delay="100" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100vh; position: relative; z-index: 2;">
+        
+        <!-- Profile Image with 3D Effect -->
+        <div class="hero-profile" style="margin-bottom: 2rem; position: relative;">
+          <img src="images-john/me.jpg" alt="John Rey Clemeña" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 30px rgba(0, 255, 255, 0.5); transition: all 0.3s ease;">
+        </div>
+        
+        <h2 style="color: #fff; font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5), 4px 4px 20px rgba(0, 255, 255, 0.7), 6px 6px 30px rgba(0, 255, 255, 0.9);">
           John Rey Q. Clemeña
         </h2>
-        <p style="color: #fff; font-size: 1.5rem; text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3), 2px 2px 15px rgba(0, 255, 255, 0.5);">
+        
+        <p style="color: #fff; font-size: 1.8rem; margin-bottom: 2rem; text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3), 2px 2px 15px rgba(0, 255, 255, 0.5);">
           I'm a passionate 
           <span class="typed" style="color: #0ff; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.7), 4px 4px 15px rgba(0, 255, 255, 0.9);" 
                 data-typed-items="Designer, Developer, Freelancer, Business Analyst">
@@ -144,9 +164,22 @@
           </span>
           <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
         </p>
+        
+        <!-- Call to Action Buttons -->
+        <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+          <a href="#portfolio" class="btn btn-primary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; padding: 12px 30px; border-radius: 25px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+            <i class="bi bi-images me-2"></i>View My Work
+          </a>
+          <a href="#contact" class="btn btn-outline-light" style="border: 2px solid rgba(255, 255, 255, 0.3); padding: 12px 30px; border-radius: 25px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+            <i class="bi bi-envelope me-2"></i>Get In Touch
+          </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+          <i class="bi bi-chevron-down" style="font-size: 2rem; color: rgba(255, 255, 255, 0.7);"></i>
+        </div>
       </div>
-      
-      
 
     </section><!-- /Hero Section -->
 
@@ -253,42 +286,52 @@
 
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section" style="border: 1px solid #ccc;">
+    <section id="stats" class="stats section" style="border: 1px solid #ccc; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative; overflow: hidden;">
 
+      <!-- Background Pattern -->
+      <div class="stats-bg-pattern" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px); background-size: 50px 50px;"></div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="100" style="position: relative; z-index: 2;">
     
         <div class="row gy-4">
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> <span>successful collaborations</span></p>
+            <div class="stats-item" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform: translateZ(0);">
+              <div class="stats-icon-wrapper" style="width: 80px; height: 80px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transition: all 0.3s ease;">
+                <i class="bi bi-emoji-smile" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter" style="font-size: 2.5rem; font-weight: 800; color: white; display: block; margin-bottom: 0.5rem;"></span>
+              <p style="color: white; margin: 0;"><strong>Happy Clients</strong> <span style="display: block; font-size: 0.9rem; opacity: 0.8;">successful collaborations</span></p>
             </div>
           </div><!-- End Stats Item -->
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> <span>completed with excellence</span></p>
+            <div class="stats-item" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform: translateZ(0);">
+              <div class="stats-icon-wrapper" style="width: 80px; height: 80px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transition: all 0.3s ease;">
+                <i class="bi bi-journal-richtext" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter" style="font-size: 2.5rem; font-weight: 800; color: white; display: block; margin-bottom: 0.5rem;"></span>
+              <p style="color: white; margin: 0;"><strong>Projects</strong> <span style="display: block; font-size: 0.9rem; opacity: 0.8;">completed with excellence</span></p>
             </div>
           </div><!-- End Stats Item -->
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> <span>provided to clients</span></p>
+            <div class="stats-item" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform: translateZ(0);">
+              <div class="stats-icon-wrapper" style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transition: all 0.3s ease;">
+                <i class="bi bi-headset" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter" style="font-size: 2.5rem; font-weight: 800; color: white; display: block; margin-bottom: 0.5rem;"></span>
+              <p style="color: white; margin: 0;"><strong>Hours Of Support</strong> <span style="display: block; font-size: 0.9rem; opacity: 0.8;">provided to clients</span></p>
             </div>
           </div><!-- End Stats Item -->
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Team Members</strong> <span>hard-working collaborators</span></p>
+            <div class="stats-item" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform: translateZ(0);">
+              <div class="stats-icon-wrapper" style="width: 80px; height: 80px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transition: all 0.3s ease;">
+                <i class="bi bi-people" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter" style="font-size: 2.5rem; font-weight: 800; color: white; display: block; margin-bottom: 0.5rem;"></span>
+              <p style="color: white; margin: 0;"><strong>Team Members</strong> <span style="display: block; font-size: 0.9rem; opacity: 0.8;">hard-working collaborators</span></p>
             </div>
           </div><!-- End Stats Item -->
     
@@ -915,6 +958,9 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- Modern Effects JS -->
+  <script src="assets/js/modern-effects.js"></script>
 
 </body>
 
