@@ -52,6 +52,59 @@
   --contrast-color: #ffffff;
 }
 
+/*--------------------------------------------------------------*/
+/* Dark Mode - Global Overrides */
+/*--------------------------------------------------------------*/
+body.dark-mode {
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
+
+  /* Navigation specific */
+  --nav-color: #a8a9b4;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #040b14;
+  --nav-dropdown-background-color: #040b14;
+  --nav-dropdown-color: #a8a9b4;
+  --nav-dropdown-hover-color: #ffffff;
+}
+
+/* Ensure sections that explicitly use the light preset are also dark when dark mode is active */
+body.dark-mode .light-background {
+  --background-color: #040b14;
+  --surface-color: #151f2b;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/*--------------------------------------------------------------*/
+/* Theme Toggle Button */
+/*--------------------------------------------------------------*/
+#theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 10000;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #444;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+#theme-toggle:hover {
+  background-color: #666;
+}
+body.dark-mode #theme-toggle {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
