@@ -20,6 +20,8 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome 6 for modern icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -38,6 +40,478 @@
   html, body {
     
     scroll-behavior: smooth;
+  }
+</style>
+
+<!-- Custom 3D Transitions and Modern Effects CSS -->
+<style>
+  /* Modern 3D Card Effects */
+  .service-item, .portfolio-item, .resume-item, .stats-item {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease;
+    perspective: 1000px;
+  }
+
+  .service-item:hover {
+    transform: translateY(-10px) rotateX(10deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3), 
+                0 10px 20px rgba(0, 255, 255, 0.2),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+  }
+
+  .portfolio-item:hover .portfolio-content {
+    transform: translateZ(20px) rotateY(5deg);
+    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.2);
+  }
+
+  /* 3D Social Icons */
+  .social-links a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .social-links a::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00ffff, #0080ff, #ff00ff);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  .social-links a:hover {
+    transform: translateY(-5px) rotateX(20deg) scale(1.2);
+    background: linear-gradient(45deg, #0080ff, #00ffff);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6),
+                0 0 20px rgba(0, 255, 255, 0.4);
+  }
+
+  .social-links a:hover::before {
+    opacity: 1;
+    animation: rotate-gradient 2s linear infinite;
+  }
+
+  @keyframes rotate-gradient {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Neon Glow Effect for Headers */
+  h1, h2, h3 {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .section-title h2 {
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-pulse {
+    from { filter: brightness(1) drop-shadow(0 0 10px rgba(0, 255, 255, 0.5)); }
+    to { filter: brightness(1.2) drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)); }
+  }
+
+  /* 3D Navigation Menu Items */
+  .navmenu a {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+  }
+
+  .navmenu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease, left 0.3s ease;
+  }
+
+  .navmenu a:hover {
+    transform: translateX(10px) translateZ(10px);
+    color: #00ffff !important;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  }
+
+  .navmenu a:hover::before {
+    opacity: 1;
+    left: -5px;
+  }
+
+  .navmenu a.active {
+    color: #00ffff !important;
+    transform: translateX(5px);
+  }
+
+  /* Modern Icon Animations */
+  .navicon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .navmenu a:hover .navicon {
+    transform: rotateY(360deg) scale(1.2);
+  }
+
+  /* 3D Stats Items */
+  .stats-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate-slow 10s linear infinite;
+  }
+
+  @keyframes rotate-slow {
+    to { transform: rotate(360deg); }
+  }
+
+  .stats-item i {
+    font-size: 48px;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+    animation: float-icon 3s ease-in-out infinite;
+  }
+
+  @keyframes float-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Modern Progress Bars */
+  .progress {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: visible;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .progress-bar {
+    background: linear-gradient(90deg, #00ffff, #0080ff, #ff00ff);
+    background-size: 300% 100%;
+    border-radius: 10px;
+    position: relative;
+    animation: gradient-shift 3s ease infinite;
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5);
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: radial-gradient(circle, #fff 30%, transparent 70%);
+    animation: spark 2s linear infinite;
+  }
+
+  @keyframes spark {
+    to { transform: translateX(-500px); }
+  }
+
+  /* 3D Portfolio Cards */
+  .portfolio-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .portfolio-content img {
+    transition: transform 0.6s ease, filter 0.6s ease;
+  }
+
+  .portfolio-content:hover img {
+    transform: scale(1.1) translateZ(20px);
+    filter: brightness(0.7);
+  }
+
+  .portfolio-info {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 100, 200, 0.8));
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+  }
+
+  .portfolio-content:hover .portfolio-info {
+    transform: translateZ(30px);
+  }
+
+  /* Modern Buttons */
+  button[type="submit"], .btn {
+    position: relative;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+  }
+
+  button[type="submit"]::before, .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  button[type="submit"]:hover, .btn:hover {
+    transform: translateY(-3px) rotateX(10deg);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+  }
+
+  button[type="submit"]:hover::before, .btn:hover::before {
+    left: 100%;
+  }
+
+  /* Hero Section 3D Text */
+  #hero h2 {
+    animation: text-3d 8s ease-in-out infinite;
+  }
+
+  @keyframes text-3d {
+    0%, 100% { 
+      transform: perspective(800px) rotateY(0deg) translateZ(0);
+    }
+    25% { 
+      transform: perspective(800px) rotateY(10deg) translateZ(50px);
+    }
+    50% { 
+      transform: perspective(800px) rotateY(0deg) translateZ(100px);
+    }
+    75% { 
+      transform: perspective(800px) rotateY(-10deg) translateZ(50px);
+    }
+  }
+
+  /* Glowing Border Effect */
+  .header, section {
+    position: relative;
+  }
+
+  .header::before, section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ffff, #0080ff, #ff00ff, #00ffff);
+    background-size: 400% 400%;
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    animation: gradient-border 3s ease infinite;
+  }
+
+  .header:hover::before, section:hover::before {
+    opacity: 0.5;
+  }
+
+  @keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Modern Form Inputs */
+  .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: white;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+  }
+
+  .form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+                inset 0 0 10px rgba(0, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Scroll Top Button 3D */
+  .scroll-top {
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .scroll-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.7);
+  }
+
+  /* Profile Image 3D Effect */
+  .profile-img {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+  }
+
+  .profile-img:hover {
+    transform: rotateY(10deg) scale(1.05);
+  }
+
+  .profile-img img {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(0, 255, 255, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .profile-img:hover img {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6),
+                0 0 60px rgba(0, 255, 255, 0.5);
+  }
+
+  /* Service Icons Modern Style */
+  .service-item .icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+  }
+
+  .service-item .icon i {
+    font-size: 30px;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .service-item:hover .icon {
+    transform: rotateY(360deg) scale(1.1);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2));
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4),
+                inset 0 0 30px rgba(0, 255, 255, 0.2);
+  }
+
+  .service-item:hover .icon i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+  }
+
+  /* Contact Info Icons */
+  .info-item i {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #00ffff, #0080ff);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+  }
+
+  .info-item:hover i {
+    transform: rotateY(360deg) scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
+  }
+
+  /* Portfolio hover icons enhancement */
+  .portfolio-info a i {
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-info a:hover i {
+    transform: scale(1.3) rotateZ(15deg);
+  }
+
+  /* Mobile Menu Toggle 3D */
+  .header-toggle {
+    font-size: 28px;
+    color: #fff;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2));
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .header-toggle:hover {
+    transform: scale(1.1) rotateZ(180deg);
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.4), rgba(0, 128, 255, 0.4));
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+  }
+
+  /* Theme toggle button enhancement */
+  #theme-toggle {
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  #theme-toggle:hover {
+    transform: scale(1.1) rotateZ(180deg);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
   }
 </style>
 
@@ -71,22 +545,22 @@
   
     <!-- Social Links -->
     <div class="social-links text-center">
-      <a href="https://x.com/CocJoqu" class="twitter"><i class="bi bi-twitter"></i></a>
-      <a href="https://www.facebook.com/johnrey.clemena.71" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/clemz.john/" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://ph.linkedin.com/in/johnrey-cleme%C3%B1a-ab9b2a257" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      <a href="https://github.com/johnjohn1012" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://x.com/CocJoqu" class="twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.facebook.com/johnrey.clemena.71" class="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/clemz.john/" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://ph.linkedin.com/in/johnrey-cleme%C3%B1a-ab9b2a257" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/johnjohn1012" class="github"><i class="fab fa-github"></i></a>
     </div>
   
     <!-- Navigation Menu -->
     <nav id="navmenu" class="navmenu">
 
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+        <li><a href="#hero" class="active"><i class="fas fa-house-chimney navicon"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user-astronaut navicon"></i> About</a></li>
+        <li><a href="#resume"><i class="fas fa-file-lines navicon"></i> Resume</a></li>
+        <li><a href="#portfolio"><i class="fas fa-briefcase navicon"></i> Portfolio</a></li>
+        <li><a href="#services"><i class="fas fa-cogs navicon"></i> Services</a></li>
 
       <!--  <li class="dropdown">
           <a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -108,7 +582,7 @@
           </ul>
         </li> -->
 
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#contact"><i class="fas fa-paper-plane navicon"></i> Contact</a></li>
       </ul>
     </nav><!-- End Navigation Menu -->
   
@@ -262,7 +736,7 @@
     
           <div class="col-lg-3 col-md-6">
             <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
+              <i class="fas fa-face-smile-beam"></i>
               <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Happy Clients</strong> <span>successful collaborations</span></p>
             </div>
@@ -270,7 +744,7 @@
     
           <div class="col-lg-3 col-md-6">
             <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
+              <i class="fas fa-rocket"></i>
               <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Projects</strong> <span>completed with excellence</span></p>
             </div>
@@ -278,7 +752,7 @@
     
           <div class="col-lg-3 col-md-6">
             <div class="stats-item">
-              <i class="bi bi-headset"></i>
+              <i class="fas fa-headset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Hours Of Support</strong> <span>provided to clients</span></p>
             </div>
@@ -286,7 +760,7 @@
     
           <div class="col-lg-3 col-md-6">
             <div class="stats-item">
-              <i class="bi bi-people"></i>
+              <i class="fas fa-users"></i>
               <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Team Members</strong> <span>hard-working collaborators</span></p>
             </div>
@@ -620,7 +1094,7 @@
         <div class="row gy-4">
     
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
+            <div class="icon flex-shrink-0"><i class="fas fa-code"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Web Development</a></h4>
               <p class="description">Designing and developing responsive and user-friendly websites using HTML, CSS, and JavaScript to meet client requirements.</p>
@@ -628,7 +1102,7 @@
           </div><!-- End Service Item -->
     
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-terminal"></i></div>
+            <div class="icon flex-shrink-0"><i class="fas fa-laptop-code"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Programming Solutions</a></h4>
               <p class="description">Creating custom Python and Java applications to address specific business needs, including automation and cashiering systems.</p>
@@ -636,7 +1110,7 @@
           </div><!-- End Service Item -->
     
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-tools"></i></div>
+            <div class="icon flex-shrink-0"><i class="fas fa-screwdriver-wrench"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Computer Maintenance</a></h4>
               <p class="description">Offering hardware diagnostics, repair, and software installation services to ensure optimal computer performance.</p>
@@ -644,7 +1118,7 @@
           </div><!-- End Service Item -->
     
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-pencil-square"></i></div>
+            <div class="icon flex-shrink-0"><i class="fas fa-palette"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Graphic Design</a></h4>
               <p class="description">Creating visually appealing designs for logos, brochures, and other marketing materials using Photoshop and PicsArt.</p>
@@ -652,7 +1126,7 @@
           </div><!-- End Service Item -->
     
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-display"></i></div>
+            <div class="icon flex-shrink-0"><i class="fas fa-photo-film"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Photo & Video Editing</a></h4>
               <p class="description">Enhancing photos and videos for professional or personal use using PowerDirector and Photoshop for creative results.</p>
@@ -660,7 +1134,7 @@
           </div><!-- End Service Item -->
     
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
+            <div class="icon flex-shrink-0"><i class="fas fa-brain"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">IT Consultation</a></h4>
               <p class="description">Providing advice on IT-related projects, troubleshooting issues, and recommending the best tools and practices to achieve success.</p>
@@ -806,7 +1280,7 @@
     
             <div class="info-wrap">
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <i class="fas fa-location-dot flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
                   <p>Cagayan de Oro City, Philippines</p>
@@ -814,7 +1288,7 @@
               </div><!-- End Info Item -->
     
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
+                <i class="fas fa-phone-volume flex-shrink-0"></i>
                 <div>
                   <h3>Call Me</h3>
                   <p>+63 953 348 0232 / +63 915 946 4548</p>
@@ -822,7 +1296,7 @@
               </div><!-- End Info Item -->
     
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
+                <i class="fas fa-envelope-open-text flex-shrink-0"></i>
                 <div>
                   <h3>Email Me</h3>
                   <p><a href="mailto:joqu.clemena.coc@phinmaed.com">joqu.clemena.coc@phinmaed.com</a></p>
@@ -915,6 +1389,177 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Custom 3D Effects and Modern Interactions -->
+  <script>
+    // Add parallax effect to hero section
+    document.addEventListener('mousemove', (e) => {
+      const hero = document.querySelector('#hero h2');
+      const heroP = document.querySelector('#hero p');
+      if (hero && heroP) {
+        const x = (window.innerWidth - e.pageX * 2) / 100;
+        const y = (window.innerHeight - e.pageY * 2) / 100;
+        
+        hero.style.transform = `perspective(800px) translateX(${x}px) translateY(${y}px) translateZ(50px)`;
+        heroP.style.transform = `perspective(800px) translateX(${x * 0.5}px) translateY(${y * 0.5}px) translateZ(30px)`;
+      }
+    });
+
+    // Add ripple effect to buttons
+    document.querySelectorAll('button, .btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    // Add floating animation to stats numbers
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'float-in 1s ease-out forwards';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.stats-item').forEach(item => {
+      statsObserver.observe(item);
+    });
+
+    // Enhanced smooth scrolling with 3D effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          // Add 3D tilt effect during scroll
+          document.body.style.transition = 'transform 0.5s ease';
+          document.body.style.transform = 'perspective(1000px) rotateX(2deg)';
+          
+          setTimeout(() => {
+            document.body.style.transform = 'none';
+          }, 500);
+          
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add glitch effect to typed text
+    const typed = document.querySelector('.typed');
+    if (typed) {
+      setInterval(() => {
+        typed.style.textShadow = `
+          ${Math.random() * 5}px ${Math.random() * 5}px 0 #ff00ff,
+          ${-Math.random() * 5}px ${Math.random() * 5}px 0 #00ffff,
+          ${Math.random() * 5}px ${-Math.random() * 5}px 0 #ffff00
+        `;
+        
+        setTimeout(() => {
+          typed.style.textShadow = '2px 2px 5px rgba(0, 255, 255, 0.7), 4px 4px 15px rgba(0, 255, 255, 0.9)';
+        }, 100);
+      }, 3000);
+    }
+
+    // Add particle effect to sections on hover
+    document.querySelectorAll('section').forEach(section => {
+      section.addEventListener('mouseenter', function() {
+        for (let i = 0; i < 5; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 2 + 's';
+          this.appendChild(particle);
+          
+          setTimeout(() => particle.remove(), 3000);
+        }
+      });
+    });
+  </script>
+
+  <!-- Additional CSS for dynamic effects -->
+  <style>
+    /* Ripple effect */
+    button, .btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(0);
+      animation: ripple-animation 0.6s ease-out;
+    }
+
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Float in animation */
+    @keyframes float-in {
+      from {
+        opacity: 0;
+        transform: translateY(30px) rotateX(-30deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+      }
+    }
+
+    /* Particle effect */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: linear-gradient(45deg, #00ffff, #ff00ff);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float-particle 3s ease-out forwards;
+    }
+
+    @keyframes float-particle {
+      to {
+        transform: translateY(-100vh) translateX(100px) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Enhanced section hover */
+    section {
+      overflow: hidden;
+    }
+
+    /* Smooth transitions for all elements */
+    * {
+      transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    }
+  </style>
 
 </body>
 
