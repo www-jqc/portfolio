@@ -23,6 +23,12 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome 6 for Modern Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Modern 3D Icons Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -36,8 +42,222 @@
   ======================================================== -->
 <style>
   html, body {
-    
     scroll-behavior: smooth;
+  }
+
+  /* Modern 3D Effects and Animations */
+  .modern-3d-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .modern-3d-card:hover {
+    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+    box-shadow: 0 25px 50px rgba(0, 255, 255, 0.3), 
+                0 0 30px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .floating-icon {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* 3D Icon Effects */
+  .icon-3d {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #00d4ff, #5a67d8, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+  }
+
+  .icon-3d:hover {
+    transform: rotateY(180deg) scale(1.2);
+    filter: drop-shadow(0 0 20px #00d4ff);
+  }
+
+  /* Neon Glow Effects */
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 
+                0 0 40px rgba(0, 255, 255, 0.4), 
+                0 0 60px rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .neon-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 
+                0 0 60px rgba(0, 255, 255, 0.6), 
+                0 0 90px rgba(0, 255, 255, 0.4);
+  }
+
+  /* Modern Button Effects */
+  .modern-btn {
+    position: relative;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    padding: 12px 30px;
+    color: white;
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  .modern-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .modern-btn:hover::before {
+    left: 100%;
+  }
+
+  .modern-btn:hover {
+    transform: translateY(-3px) rotateX(10deg);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  /* Service Cards 3D Enhancement */
+  .service-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    transform-style: preserve-3d;
+  }
+
+  .service-item:hover {
+    transform: translateZ(30px) rotateX(5deg) rotateY(5deg);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(0, 255, 255, 0.2);
+  }
+
+  /* Portfolio Item 3D Effects */
+  .portfolio-item {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .portfolio-content {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #667eea, #764ba2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .portfolio-content:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Navigation 3D Enhancement */
+  .navmenu a {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+
+  .navmenu a:hover {
+    transform: translateX(10px) scale(1.05);
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(102, 126, 234, 0.2));
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Stats Section Enhancement */
+  .stats-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stats-item:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Profile Image 3D Effect */
+  .profile-img img {
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .profile-img img:hover {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(0, 255, 255, 0.5);
+  }
+
+  /* Skill Progress Bar Enhancement */
+  .progress-bar {
+    background: linear-gradient(45deg, #667eea, #764ba2, #00d4ff);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* Social Links 3D Enhancement */
+  .social-links a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    margin: 0 5px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    transform-style: preserve-3d;
+  }
+
+  .social-links a:hover {
+    transform: rotateY(180deg) scale(1.2);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
   }
 </style>
 
@@ -71,22 +291,22 @@
   
     <!-- Social Links -->
     <div class="social-links text-center">
-      <a href="https://x.com/CocJoqu" class="twitter"><i class="bi bi-twitter"></i></a>
-      <a href="https://www.facebook.com/johnrey.clemena.71" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/clemz.john/" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://ph.linkedin.com/in/johnrey-cleme%C3%B1a-ab9b2a257" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      <a href="https://github.com/johnjohn1012" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://x.com/CocJoqu" class="twitter neon-glow"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.facebook.com/johnrey.clemena.71" class="facebook neon-glow"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/clemz.john/" class="instagram neon-glow"><i class="fab fa-instagram"></i></a>
+      <a href="https://ph.linkedin.com/in/johnrey-cleme%C3%B1a-ab9b2a257" class="linkedin neon-glow"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/johnjohn1012" class="github neon-glow"><i class="fab fa-github"></i></a>
     </div>
   
     <!-- Navigation Menu -->
     <nav id="navmenu" class="navmenu">
 
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+        <li><a href="#hero" class="active"><i class="fas fa-home navicon floating-icon icon-3d"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user navicon floating-icon icon-3d"></i> About</a></li>
+        <li><a href="#resume"><i class="fas fa-file-alt navicon floating-icon icon-3d"></i> Resume</a></li>
+        <li><a href="#portfolio"><i class="fas fa-briefcase navicon floating-icon icon-3d"></i> Portfolio</a></li>
+        <li><a href="#services"><i class="fas fa-cogs navicon floating-icon icon-3d"></i> Services</a></li>
 
       <!--  <li class="dropdown">
           <a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -108,7 +328,7 @@
           </ul>
         </li> -->
 
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope navicon floating-icon icon-3d"></i> Contact</a></li>
       </ul>
     </nav><!-- End Navigation Menu -->
   
@@ -261,32 +481,32 @@
         <div class="row gy-4">
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
+            <div class="stats-item modern-3d-card">
+              <i class="fas fa-smile-beam icon-3d floating-icon" style="color: #ffd700;"></i>
               <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Happy Clients</strong> <span>successful collaborations</span></p>
             </div>
           </div><!-- End Stats Item -->
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
+            <div class="stats-item modern-3d-card">
+              <i class="fas fa-project-diagram icon-3d floating-icon" style="color: #00d4ff;"></i>
               <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Projects</strong> <span>completed with excellence</span></p>
             </div>
           </div><!-- End Stats Item -->
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
+            <div class="stats-item modern-3d-card">
+              <i class="fas fa-headset icon-3d floating-icon" style="color: #764ba2;"></i>
               <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Hours Of Support</strong> <span>provided to clients</span></p>
             </div>
           </div><!-- End Stats Item -->
     
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
+            <div class="stats-item modern-3d-card">
+              <i class="fas fa-users icon-3d floating-icon" style="color: #667eea;"></i>
               <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Team Members</strong> <span>hard-working collaborators</span></p>
             </div>
@@ -530,65 +750,65 @@
     
             <!-- Portfolio Item: Coffee Shop Website -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-content h-100">
+              <div class="portfolio-content h-100 modern-3d-card">
                 <img src="https://tse2.mm.bing.net/th?id=OIP.fGSnCVx_OCIGmPZtpzI74wHaEo&pid=Api" class="img-fluid" alt="Coffee Shop Website">
                 <div class="portfolio-info">
                   <h4>Coffee Shop Website</h4>
                   <p>Developed a responsive and user-friendly website for a coffee shop, featuring an online menu and ordering system.</p>
-                  <a href="https://w3layouts.com/template/coffee-cafe-website-for-coffee-shop/" title="Coffee Shop Website" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details-coffee.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="https://w3layouts.com/template/coffee-cafe-website-for-coffee-shop/" title="Coffee Shop Website" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="fas fa-search-plus"></i></a>
+                  <a href="portfolio-details-coffee.html" title="More Details" class="details-link"><i class="fas fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
     
             <!-- Portfolio Item: Weight Conversion Tool -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-python">
-              <div class="portfolio-content h-100">
+              <div class="portfolio-content h-100 modern-3d-card">
                 <img src="https://tse1.mm.bing.net/th?id=OIP.T20ug1kZx_CM2k2edaJmrQHaF3&pid=Api" class="img-fluid" alt="Weight Conversion Tool">
                 <div class="portfolio-info">
                   <h4>Weight Conversion Tool</h4>
                   <p>Created a Python application that converts weights between kilograms and pounds, with a user-friendly interface.</p>
-                  <a href="https://lessonlibraryprofundo.z13.web.core.windows.net/kg-to-lbs-conversion-chart-printable-pdfs.html" title="Weight Conversion Tool" data-gallery="portfolio-gallery-python" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details-kg-lb.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="https://lessonlibraryprofundo.z13.web.core.windows.net/kg-to-lbs-conversion-chart-printable-pdfs.html" title="Weight Conversion Tool" data-gallery="portfolio-gallery-python" class="glightbox preview-link"><i class="fas fa-search-plus"></i></a>
+                  <a href="portfolio-details-kg-lb.html" title="More Details" class="details-link"><i class="fas fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
     
             <!-- Portfolio Item: Mini Cashiering System -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-java">
-              <div class="portfolio-content h-100">
+              <div class="portfolio-content h-100 modern-3d-card">
                 <img src="https://tse1.mm.bing.net/th?id=OIP.T42yBmdwoijFwWdMFTrIqAHaF4&pid=Api" class="img-fluid" alt="Mini Cashiering System">
                 <div class="portfolio-info">
                   <h4>Mini Cashiering System</h4>
                   <p>Developed a Java-based cashiering system for managing transactions and generating receipts for small businesses.</p>
-                  <a href="https://www.sourcecodester.com/tutorials/visual-basic-net/12709/how-create-mini-cashiering-system.html" title="Mini Cashiering System" data-gallery="portfolio-gallery-java" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details-cashiering.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="https://www.sourcecodester.com/tutorials/visual-basic-net/12709/how-create-mini-cashiering-system.html" title="Mini Cashiering System" data-gallery="portfolio-gallery-java" class="glightbox preview-link"><i class="fas fa-search-plus"></i></a>
+                  <a href="portfolio-details-cashiering.html" title="More Details" class="details-link"><i class="fas fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
     
             <!-- Portfolio Item: Finance Website -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-content h-100">
+              <div class="portfolio-content h-100 modern-3d-card">
                 <img src="https://tse3.mm.bing.net/th?id=OIP.V7-VCjPYV3QHeNk0hTLKAgHaD4&pid=Api" class="img-fluid" alt="Finance Website">
                 <div class="portfolio-info">
                   <h4>Finance Website</h4>
                   <p>Designed a professional website for a finance company, highlighting services and client testimonials.</p>
-                  <a href="https://medium.com/%40brotherlycreative/finance-website-templates-b5bdcb2b56c7" title="Finance Website" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details-finance.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="https://medium.com/%40brotherlycreative/finance-website-templates-b5bdcb2b56c7" title="Finance Website" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="fas fa-search-plus"></i></a>
+                  <a href="portfolio-details-finance.html" title="More Details" class="details-link"><i class="fas fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
     
             <!-- Portfolio Item: Photo Editing Showcase -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-photo">
-              <div class="portfolio-content h-100">
+              <div class="portfolio-content h-100 modern-3d-card">
                 <img src="https://tse3.mm.bing.net/th?id=OIP.V7-VCjPYV3QHeNk0hTLKAgHaD4&pid=Api" class="img-fluid" alt="Photo Editing Showcase">
                 <div class="portfolio-info">
                   <h4>Photo Editing Showcase</h4>
                   <p>Showcased advanced photo editing skills for a fashion campaign, including creative before-and-after images.</p>
-                  <a href="https://contra.com/p/qO2kgblk-photo-editing-showcase-for-fashion-campaign" title="Photo Editing Showcase" data-gallery="portfolio-gallery-photo" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details-photo.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="https://contra.com/p/qO2kgblk-photo-editing-showcase-for-fashion-campaign" title="Photo Editing Showcase" data-gallery="portfolio-gallery-photo" class="glightbox preview-link"><i class="fas fa-search-plus"></i></a>
+                  <a href="portfolio-details-photo.html" title="More Details" class="details-link"><i class="fas fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -619,48 +839,48 @@
     
         <div class="row gy-4">
     
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
+          <div class="col-lg-4 col-md-6 service-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="fas fa-code icon-3d floating-icon" style="color: #00d4ff;"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Web Development</a></h4>
               <p class="description">Designing and developing responsive and user-friendly websites using HTML, CSS, and JavaScript to meet client requirements.</p>
             </div>
           </div><!-- End Service Item -->
     
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-terminal"></i></div>
+          <div class="col-lg-4 col-md-6 service-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="fas fa-laptop-code icon-3d floating-icon" style="color: #667eea;"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Programming Solutions</a></h4>
               <p class="description">Creating custom Python and Java applications to address specific business needs, including automation and cashiering systems.</p>
             </div>
           </div><!-- End Service Item -->
     
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-tools"></i></div>
+          <div class="col-lg-4 col-md-6 service-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="fas fa-tools icon-3d floating-icon" style="color: #764ba2;"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Computer Maintenance</a></h4>
               <p class="description">Offering hardware diagnostics, repair, and software installation services to ensure optimal computer performance.</p>
             </div>
           </div><!-- End Service Item -->
     
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-pencil-square"></i></div>
+          <div class="col-lg-4 col-md-6 service-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon flex-shrink-0"><i class="fas fa-palette icon-3d floating-icon" style="color: #ffd700;"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Graphic Design</a></h4>
               <p class="description">Creating visually appealing designs for logos, brochures, and other marketing materials using Photoshop and PicsArt.</p>
             </div>
           </div><!-- End Service Item -->
     
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-display"></i></div>
+          <div class="col-lg-4 col-md-6 service-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon flex-shrink-0"><i class="fas fa-video icon-3d floating-icon" style="color: #ff6b6b;"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">Photo & Video Editing</a></h4>
               <p class="description">Enhancing photos and videos for professional or personal use using PowerDirector and Photoshop for creative results.</p>
             </div>
           </div><!-- End Service Item -->
     
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
+          <div class="col-lg-4 col-md-6 service-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon flex-shrink-0"><i class="fas fa-lightbulb icon-3d floating-icon" style="color: #4ecdc4;"></i></div>
             <div>
               <h4 class="title"><a href="#services" class="stretched-link">IT Consultation</a></h4>
               <p class="description">Providing advice on IT-related projects, troubleshooting issues, and recommending the best tools and practices to achieve success.</p>
@@ -805,24 +1025,24 @@
           <div class="col-lg-5">
     
             <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div class="info-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-map-marker-alt flex-shrink-0 icon-3d floating-icon" style="color: #ff6b6b;"></i>
                 <div>
                   <h3>Address</h3>
                   <p>Cagayan de Oro City, Philippines</p>
                 </div>
               </div><!-- End Info Item -->
     
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
+              <div class="info-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-phone-alt flex-shrink-0 icon-3d floating-icon" style="color: #4ecdc4;"></i>
                 <div>
                   <h3>Call Me</h3>
                   <p>+63 953 348 0232 / +63 915 946 4548</p>
                 </div>
               </div><!-- End Info Item -->
     
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
+              <div class="info-item d-flex modern-3d-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-envelope flex-shrink-0 icon-3d floating-icon" style="color: #667eea;"></i>
                 <div>
                   <h3>Email Me</h3>
                   <p><a href="mailto:joqu.clemena.coc@phinmaed.com">joqu.clemena.coc@phinmaed.com</a></p>
@@ -862,7 +1082,9 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
     
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="modern-btn neon-glow">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                  </button>
                 </div>
     
               </div>
@@ -896,7 +1118,9 @@
   
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center neon-glow">
+    <i class="fas fa-chevron-up icon-3d"></i>
+  </a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
