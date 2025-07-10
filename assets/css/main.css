@@ -1267,4 +1267,29 @@ section,
   color: var(--accent-color);
 }
 
+/*--------------------------------------------------------------
+# Custom 3D Icon Transitions
+--------------------------------------------------------------*/
+.navmenu a .navicon {
+  transition: transform 0.6s cubic-bezier(0.37, 0, 0.63, 1);
+  transform-style: preserve-3d;
+}
+
+.navmenu a:hover .navicon,
+.navmenu .active .navicon {
+  transform: rotateY(360deg) scale(1.25);
+}
+
+/* 3D hover for service and stats icons */
+.services .service-item .icon,
+.stats .stats-item i {
+  transition: transform 0.6s cubic-bezier(0.37, 0, 0.63, 1);
+  transform-style: preserve-3d;
+}
+
+.services .service-item:hover .icon,
+.stats .stats-item:hover i {
+  transform: rotateX(360deg) scale(1.15);
+}
+
 
