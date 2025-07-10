@@ -210,50 +210,7 @@
     
     </section>
     
-    <script>
-      const toggleButton = document.getElementById('theme-toggle');
-      const themeIcon = document.getElementById('theme-icon');
-      const aboutSection = document.getElementById('about');
-
-      function applyTheme(isDark) {
-        if (isDark) {
-          document.body.classList.add('dark-mode');
-          themeIcon.className = 'bi bi-brightness-high';
-
-          if (aboutSection) {
-            aboutSection.style.background = 'linear-gradient(rgb(29, 27, 27), rgb(34, 32, 32))';
-            aboutSection.style.color = 'white';
-            document.querySelectorAll('#about h2, #about p, #about li, #about a, #about span').forEach(el => {
-              el.style.color = 'white';
-              el.style.textShadow = '2px 2px 4px black';
-            });
-          }
-        } else {
-          document.body.classList.remove('dark-mode');
-          themeIcon.className = 'bi bi-moon';
-
-          if (aboutSection) {
-            aboutSection.style.background = 'linear-gradient(white, lightgray)';
-            aboutSection.style.color = 'black';
-            document.querySelectorAll('#about h2, #about p, #about li, #about a, #about span').forEach(el => {
-              el.style.color = 'black';
-              el.style.textShadow = 'none';
-            });
-          }
-        }
-      }
-
-      // Event Listener for toggle button
-      toggleButton.addEventListener('click', () => {
-        const willEnableDark = !document.body.classList.contains('dark-mode');
-        applyTheme(willEnableDark);
-        localStorage.setItem('theme', willEnableDark ? 'dark' : 'light');
-      });
-
-      // Apply saved preference on load
-      const savedTheme = localStorage.getItem('theme');
-      applyTheme(savedTheme === 'dark');
-    </script>
+    <!-- Theme handled globally via assets/js/main.js -->
     
     <!-- Include Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">

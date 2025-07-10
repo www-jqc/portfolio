@@ -226,4 +226,72 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Theme Toggle - Dark/Light Mode
+   * This logic creates a theme toggle button if it is not present on the page
+   * and handles applying dark or light mode based on localStorage preference.
+   */
+  function initThemeToggle() {
+    const STORAGE_KEY = 'theme';
+
+    // Helper to apply variables & icon
+    const applyTheme = (isDark) => {
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+        if (themeIcon) themeIcon.className = 'bi bi-brightness-high';
+      } else {
+        document.body.classList.remove('dark-mode');
+        if (themeIcon) themeIcon.className = 'bi bi-moon';
+      }
+    };
+
+    // Ensure we have a button and icon in the DOM
+    let toggleBtn = document.getElementById('theme-toggle');
+    if (!toggleBtn) {
+      toggleBtn = document.createElement('button');
+      toggleBtn.id = 'theme-toggle';
+      toggleBtn.style.position = 'fixed';
+      toggleBtn.style.top = '15px';
+      toggleBtn.style.right = '15px';
+      toggleBtn.style.zIndex = '10000';
+      toggleBtn.style.padding = '10px';
+      toggleBtn.style.fontSize = '20px';
+      toggleBtn.style.cursor = 'pointer';
+      toggleBtn.style.border = 'none';
+      toggleBtn.style.borderRadius = '50%';
+      toggleBtn.style.backgroundColor = '#444';
+      toggleBtn.style.color = '#fff';
+      toggleBtn.innerHTML = '<i id="theme-icon" class="bi bi-moon"></i>';
+      document.body.appendChild(toggleBtn);
+    }
+
+    // Ensure icon reference exists
+    let themeIcon = document.getElementById('theme-icon');
+    if (!themeIcon) {
+      themeIcon = document.createElement('i');
+      themeIcon.id = 'theme-icon';
+      themeIcon.className = 'bi bi-moon';
+      toggleBtn.appendChild(themeIcon);
+    }
+
+    // Restore preference
+    const savedPref = localStorage.getItem(STORAGE_KEY);
+    const isDark = savedPref === 'dark';
+    applyTheme(isDark);
+
+    // Click handler
+    toggleBtn.addEventListener('click', () => {
+      const willEnableDark = !document.body.classList.contains('dark-mode');
+      applyTheme(willEnableDark);
+      localStorage.setItem(STORAGE_KEY, willEnableDark ? 'dark' : 'light');
+    });
+  }
+
+  // Initialize the theme toggle when DOM is ready
+  if (document.readyState !== 'loading') {
+    initThemeToggle();
+  } else {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  }
+
 })();
